@@ -27,7 +27,12 @@ class BookController extends Controller
             'shelf_no'=>$shelfno,
             'price'=>$price
         ]);
-        return redirect()->route('viewbooks');
+        return view('admindashboard');
+    }
+    public function viewbook1()
+    {
+        $datas=Book::paginate(4);
+        return view('admin_viewbook',compact('datas'));
     }
 
 

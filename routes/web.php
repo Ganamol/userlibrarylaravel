@@ -38,10 +38,10 @@ Route::get('/viewuserregistration','UserregController@viewuserreg')->name('viewu
 Route::get('viewregister/{id}','UserregController@view_userreg')->name('view_userreg');
 Route::post('/approve','UserregController@approve')->name('approve');
 
-Route::post('/viewbook','BookController@viewbook')->name('viewbook');
-Route::get('/addbook','BookController@addbook')->name('savebook');
+ Route::post('/addbook','BookController@addbook')->name('savebook');
 
-Route::get('/addbook','BookController@addbook')->name('savebook');
+Route::get('/viewbook','BookController@viewbook')->name('viewbook');
+ Route::get('/viewbooks','BookController@viewbook1')->name('viewbook1');
 
 
 Route::get('/viewprofile','UserregController@viewprofile')->name('viewprofile');

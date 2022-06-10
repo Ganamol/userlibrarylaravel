@@ -63,6 +63,8 @@
   
     @yield('approve') 
      @yield('viewnew')
+     @yield('add_book')
+     @yield('viewbook')
   </div>
       
         

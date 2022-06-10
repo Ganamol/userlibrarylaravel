@@ -1,5 +1,5 @@
 
-@extends('home')
+@extends('admindashboard')
 @section('add_book')
 
      

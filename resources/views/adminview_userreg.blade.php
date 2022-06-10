@@ -27,7 +27,7 @@
             <td>{{$data->date_of_birth}}</td> 
         
             <td><a href="{{route('view_userreg',$data->id)}}" class="btn btn-primary">View</a></td>
-             {{-- <td><a href="{{route('upview',$edit->id)}}" class="btn btn-primary">Edit</a></td> --}}
+              <td><a href="{{route('upview',$edit->id)}}" class="btn btn-primary">Edit</a></td> 
           
           </tr>
               @endforeach
