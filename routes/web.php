@@ -41,6 +41,7 @@ Route::post('/approve','UserregController@approve')->name('approve');
 Route::post('/viewbook','BookController@viewbook')->name('viewbook');
 Route::get('/addbook','BookController@addbook')->name('savebook');
 
+Route::get('/addbook','BookController@addbook')->name('savebook');
 
 
 Route::get('/viewprofile','UserregController@viewprofile')->name('viewprofile');
