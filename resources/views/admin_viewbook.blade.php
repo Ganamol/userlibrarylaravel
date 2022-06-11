@@ -3,7 +3,7 @@
 
 
   <div style="width: 80%">
-    
+    <center>
 <table class="table table-success table-striped" height=100 width=300>
   <thead>
     <tr>
@@ -37,6 +37,6 @@
 </table>
 <div>{{$datas->links()}}</div>
 </div>
-</center>
 
+</center>
 @endsection

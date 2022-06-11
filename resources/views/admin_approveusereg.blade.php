@@ -18,8 +18,9 @@
   <tr> <td>  <label for="formGroupExampleInput" class="form-label">Email:</td><td>{{$viewreg->email}} <br></td></tr>
    <tr> <td><label for="formGroupExampleInput" class="form-label">Myself:</td><td>{{$viewreg->myself}} <br></td></tr>
   <tr> <td> <label for="formGroupExampleInput" class="form-label">Photo:</td><td>{{$viewreg->image}} <br></td></tr>     <tr> <td> <label for="formGroupExampleInput" class="form-label">Password:</td><td>{{$viewreg->password}} <br></td></tr>
-  <tr><td><button type="submit" class="btn btn-primary btn-block" name="approve" >Approve</button></td><td><button type="submit" class="btn btn-primary btn-block" name="cancel" >Reject</button></td> </tr>
-
+  <tr><td><button type="submit" class="btn btn-primary btn-block" name="approve" >Approve</button></td> <td><a href="{{route('userreject',$viewreg->id)}}" class="btn btn-primary" style="color: red"><b>Reject</b></a></td>
+ 
+    
 </table>
     </form>
     

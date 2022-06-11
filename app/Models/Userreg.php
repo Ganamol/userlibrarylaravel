@@ -39,7 +39,15 @@ class Userreg extends Authenticatable
         'password',
         'remember_token',
     ];
+    public function setCategoryAttribute($value)
+    {
+        $this->attributes['category'] = json_encode($value);
+    }
 
+    public function getCategoryAttribute($value)
+    {
+        return $this->attributes['category'] = json_decode($value);
+    }
     /**
      * The attributes that should be cast.
      *

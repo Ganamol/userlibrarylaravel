@@ -45,5 +45,5 @@ Route::get('/viewbook','BookController@viewbook')->name('viewbook');
 
 
 Route::get('/viewprofile','UserregController@viewprofile')->name('viewprofile');
-    
-
+Route::get('/home','UserregController@admindashboard')->name('admindashboard'); 
+Route::get('reject/{id}','UserregController@userreject')->name('userreject'); 

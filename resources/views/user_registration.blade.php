@@ -49,7 +49,7 @@
               <!-- /.card-header -->
              
               <!-- form start -->
-              <form method="POST" action="{{route('userregistration')}}">
+              <form method="POST" action="{{route('userregistration')}}" enctype="mutlipart/form-data">
                 @csrf
                 <div class="card-body">
                   <div class="form-group">
@@ -63,7 +63,8 @@
                   <div class="custom-control custom-radio">
                   <div class="form-group">
                     <label for="">Gender</label> 
-                    <input  type="radio" id="" name="gender"> <label for="" class="">Male</label><div><div></div></div><input class=""  type="radio" id="" name="gender"> <label for="" class="">Female</label>
+                    <input  type="radio" id="" name="gender" value="male">Male<input   type="radio" id="" name="gender" value="female">Female
+                 
                   </div></div>
                   </div>
                   <div class="form-group">
@@ -80,11 +81,13 @@
                   <table>
                     <tr>
 
-                  <td> <input type="checkbox" class="" id=""><label class="" for="customSwitch1">Cricket<label></label></td>
-                 <div></div>  <td> <input type="checkbox" class="" id=""><label class="" for="">Tennis<label></td>
+                  <td> <input type="checkbox"  name="category[]"  value="Cricket"><label >Cricket<label></label></td>
+                 <div></div>  <td> <input type="checkbox" name="category[]" value="Tennis"><label>Tennis<label></td>
                    
-                 <div></div>  <td> <input type="checkbox" class="" id=""><label class="" for="">Football<label></td>
-                    </tr>
+                 <div></div>  <td> <input type="checkbox" name="category[]" value="Football"><label>Football<label></td>
+                   
+               
+                </tr>
                   </table>
                      
                   
@@ -107,13 +110,14 @@
                     <label for="exampleInputFile">File input</label>
                     <div class="input-group">
                       <div class="custom-file">
-                        <input type="file"  name="image" class="custom-file-input" id="exampleInputFile">
+                        <input type="file"  name="image" value="name" class="custom-file-input" id="exampleInputFile">
+ 
                         <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                       </div>
-                      <div class="input-group-append">
+                      {{-- <div class="input-group-append">
                         <img src="" alt="">
                         <span class="input-group-text">Upload</span>
-                      </div>
+                      </div> --}}
                     </div>
                  
                   <button type="submit" class="btn btn-primary" name="submit">Submit</button>
