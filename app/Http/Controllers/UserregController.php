@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Userreg;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class UserregController extends Controller
 {
@@ -12,11 +13,14 @@ public function index()
 {
     return view('index');
 }
-
+public function admindashboard()
+{
+    return view('admindashboard');
+}
 
     public function userreg()
     {
-        return view('userregistration');
+        return view('user_registration');
     }
 public function login()
 {
@@ -54,30 +58,37 @@ public function logout()
     return redirect()->route('index');
 }
 
-    public function userregistration()
+    public function userregistration(Request $request)
     {
         $name=request('name');
         $date_of_birth=request('date_of_birth');
         $gender=request('gender');
+        
         $qualification='SSLC';
-        $hobbies='cricket';
+        $input['category'] = request('category');
+        $category = json_encode($input['category']); //array to json string conversion
+        $hobbies=$category;
         $email=request('email');
         $password=request('password');
         $myself=request('myself');
-        $image='SSS'; 
+
+        $file =request('image');
+     
+     
         $status='register';
        
         
 Userreg::create([
 'name'=>$name,
 'date_of_birth'=>$date_of_birth,
-'gender'=>'male',
+'gender'=>$gender,
 'qualification'=>$qualification,
 'hobbies'=>$hobbies,
 'email'=>$email,
 'password'=>$password,
 'myself'=>$myself,
-'image'=>$image,
+'image'=>$file,
+
 'status'=>$status
 
 ]);
@@ -120,6 +131,19 @@ public function viewprofile()
 //    $viewdata= Userreg::find($id);
 //    return redirect('user_viewprofile',compact($viewdata));
 
+
+}
+public function userreject($id)
+{
+    
+    $id=request('id');
+  
+    $status=Userreg::find($id);
+    $status->update([
+        'status'=>'reject'
+    ]);
+
+    return view('admindashboard');
 
 }
 
