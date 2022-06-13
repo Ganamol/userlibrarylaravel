@@ -60,13 +60,27 @@ public function logout()
 
     public function userregistration(Request $request)
     {
+       request()->validate([
+
+        'name'=>'required',
+        'date_of_birth'=>'required',
+        'gender'=>'required',
+        'qualification'=>'required',
+         'category'=>'required',
+         'email'=>'required',
+         'password'=>'required',
+         'myself'=>'required',
+         'image'=>'required'
+
+       ] ); 
+       
         $name=request('name');
         $date_of_birth=request('date_of_birth');
         $gender=request('gender');
-        
         $qualification='SSLC';
         $input['category'] = request('category');
         $category = json_encode($input['category']); //array to json string conversion
+       
         $hobbies=$category;
         $email=request('email');
         $password=request('password');

@@ -55,28 +55,41 @@
                   <div class="form-group">
                     <label for="exampleInputEmail1">Name</label>
                     <input type="text" class="form-control" name="name" id="exampleInputEmail1" placeholder="Enter Name">
+                 @error('name')
+                 <p style="color: red">  {{$message}}</p>
+                 @enderror
                   </div>
                   <div class="form-group">
                     <label for="exampleInputEmail1">Date of Birth</label>
                     <input type="date" class="form-control" name="date_of_birth" id="exampleInputEmail1" placeholder="Enter dateofbirth">
                   </div>
+                  @error('date_of_birth')
+                  <p style="color: red">  {{$message}}</p>
+                  @enderror
                   <div class="custom-control custom-radio">
                   <div class="form-group">
                     <label for="">Gender</label> 
                     <input  type="radio" id="" name="gender" value="male">Male<input   type="radio" id="" name="gender" value="female">Female
-                 
-                  </div></div>
+                    @error('gender')
+                    <p style="color: red">  {{$message}}</p>
+                    @enderror
+                  </div>
                   </div>
                   <div class="form-group">
                     <label>Custom Select</label>
                     <select class="custom-select" name="qualification">
+                      <option>Select</option>
                       <option>SSLC</option>
                       <option>PLUS TWO</option>
                       <option>DEGREE</option>
                       <option>POST GRADUATION</option>
                       </select>
-                  </div>
-                  <label>Hobbies</label>
+                  </div> 
+                  
+                  @error('qualification')
+                  <p style="color: red">  {{$message}}</p>
+                  @enderror
+                 <label>Hobbies</label>
                   <div class="form-group">
                   <table>
                     <tr>
@@ -88,6 +101,9 @@
                    
                
                 </tr>
+                @error('category[]')
+                <p style="color: red">  {{$message}}</p>
+                @enderror
                   </table>
                      
                   
@@ -96,39 +112,70 @@
                   </div>
                     <label for="exampleInputPassword1">Email</label>
                     <input type="email" class="form-control" name="email" id="exampleInputPassword1" placeholder="Email">
-                
+                    @error('email')
+                    <p style="color: red">  {{$message}}</p>
+                    @enderror
                   <div class="form-group">
                     <label for="exampleInputPassword1">Password</label>
                     <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
                   </div>
+                  @error('password')
+                  <p style="color: red">  {{$message}}</p>
+                  @enderror
                   <div class="form-group">
                     <label>Describe Yourself...</label>
-                    <textarea class="form-control" rows="3" name="myself" placeholder="Enter ...">Myself</textarea>
+                    <textarea class="form-control" rows="3" name="myself" placeholder="Enter ..."></textarea>
                   </div>
+                  @error('myself')
+                  <p style="color: red">  {{$message}}</p>
+                  @enderror
                 </div>
                   <div class="form-group">
+                    
                     <label for="exampleInputFile">File input</label>
-                    <div class="input-group">
+                     @error('image')
+                        <p style="color: red">  {{$message}}</p>
+                        @enderror
+                        <div class="input-group">
                       <div class="custom-file">
+                         
                         <input type="file"  name="image" value="name" class="custom-file-input" id="exampleInputFile">
- 
+                      
                         <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                     
                       </div>
-                      {{-- <div class="input-group-append">
-                        <img src="" alt="">
-                        <span class="input-group-text">Upload</span>
-                      </div> --}}
+                 
                     </div>
-                 
+                    
+                      <center>
                   <button type="submit" class="btn btn-primary" name="submit">Submit</button>
-                 
-                </div>
+                  <button type="submit" class="btn btn-primary" name="submit" onclick="clear()">Clear</button>
+                   
+                </center>
+                <div>
                 <!-- /.card-body -->
 
                 <div class="card-footer">
                   <center>
                  
                </center> </div>
+               <script>
+                function clear()
+                {
+                 
+                  $('#new').live('click',function(){
+                   $('#name').val('');
+                   $('#date_of_birth').val('');
+                   $('#email').val('');
+                   $('#gender').val('');
+                   $('#qualification').val('');
+                   $('#image').val('');
+                   $('#myself').val('');
+                   $('#password').val('');
+ 
+});
+                }
+               </script>
               </form>
             </div>
             <!-- /.card -->
